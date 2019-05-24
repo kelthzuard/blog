@@ -99,7 +99,7 @@ export default {
   font-weight: 600;
   text-align: right;
   cursor: pointer;
-  margin-right: 10%;
+  margin-right: 15%;
   .title{
     margin: 10px 0;
   }
