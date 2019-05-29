@@ -1,6 +1,6 @@
 <template>
   <div class="articlePreview">
-    <div class="main" @mouseover="showShadow" @mouseout="showShadow" :style="'box-shadow:rgba(0,0,0,'+((shadow)?'0.1':'0')+') 0 0 10px'">
+    <div class="main" @mouseover="showShadow" @mouseout="showShadow" :style="'box-shadow:rgba(0,0,0,'+((shadow)?'0.3':'0.1')+') 0 0 10px'">
       <div class="title">
         <div class="leftLine"></div>
         <div class="titleBody">
@@ -59,7 +59,7 @@ export default {
 </script>
 <style lang="less" scoped>
 .articlePreview{
-  padding: 50px 10%;
+  padding: 70px 10%;
   display: flex;
 }
 .selector{

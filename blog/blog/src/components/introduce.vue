@@ -10,14 +10,14 @@
     </div>
     <div class="imgPart">
       <div class="imgContainer">   
-        <img src="../assets/engineerImg.png">   
+        <img src="../assets/engineerImg.jpg">   
       </div>
       <p class="title">egineering article</p>
       <p class="detail">specific techqnue including fornt end, back end and actifiction intellgience</p>
     </div>
     <div class="imgPart">
       <div class="imgContainer">   
-        <img src="../assets/dailyLife.png">   
+        <img src="../assets/dailyLife.jpg">   
       </div>
       <p class="title">dailyTrace share</p>
       <p class="detail">food, traveling, every single process in daily life.having fun sharing it in photograph</p>

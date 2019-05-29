@@ -1,9 +1,9 @@
 <template>
   <div class="container">
-    <div :class="'option' + ((type === 'home')?' selected':'')">Home</div>
-    <div class="option">article</div>
-    <div class="option">photograph</div>
-    <div class="option">aboutMe</div>
+    <div :class="'option' + ((type === 'home')?' selected':'')" @click="redirect('/')">Home</div>
+    <div :class="'option' + ((type === 'article')?' selected':'')" @click="redirect('gallery')" class="option">article</div>
+    <div :class="'option' + ((type === 'gallery')?' selected':'')" @click="redirect('/gallery')" class="option">gallery</div>
+    <div :class="'option' + ((type === 'about')?' selected':'')" class="option">about</div>
     <div class="option right">
       <img src="../assets/search.svg">
     </div>
@@ -16,21 +16,28 @@ export default {
     'type'
   ],
   mounted() {
+  },
+  methods: {
+    redirect (path) {
+      this.$router.push({
+        path: path
+      })
+    }
   }
 }
 </script>
 <style lang="less" scoped>
 .container{
   width: 100%;
-  height: 40px;
-  line-height: 40px;
+  height: 60px;
+  line-height: 60px;
   padding-left: 10%;
   display: flex;
   box-sizing: border-box;
 }
 .container .option{
-  color: #999;
-  font-size: 14px;
+  color: #666;
+  font-size: 16px;
   cursor: pointer;
   margin: 0 30px;
   transition: color 0.3s ease;

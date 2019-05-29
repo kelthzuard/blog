@@ -1,10 +1,11 @@
 <template>
 <div class="mainContainer">
-  <div class="topHeaderIcon">
-    <img src="../assets/word.png">
-  </div>
   <router :type="'home'"></router>
   <div class="backPic">
+    <div class="word">
+      WELCOME<br>BRO
+      <p class="desc">please enjoy yourself and <br>contact me <br>if you find any thing wrong in this website</p>
+    </div>
   </div>
   <introduce></introduce>
   <article-preview></article-preview>
@@ -56,10 +57,29 @@ export default {
   }
 }
 .backPic{
-  width: 100%;
-  height: 250px;
+  width: 70%;
+  height: 400px;
+  margin: 30px auto;
+  position: relative;
   background-image: url(../assets/background.jpg);
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-size: 45px;
+  font-weight: 600;
+  color: #fff;
+  text-align: left;
+  letter-spacing: 5px;
+  .word{
+    position: absolute;
+    top: 60px;
+    left: 50px;
+    .desc{
+      margin-top: 30px;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+  }
 }
 .splitLine{
   width: 80%;
