@@ -1,7 +1,7 @@
 <template>
   <div class="endPart">
     <div class="imgPart">
-      <img src="../assets/icon.jpeg">
+      <img src="../../assets/icon.jpeg">
     </div>
     <div class="introPart">
       <p class="title">KELTHZUARD's Blog</p>

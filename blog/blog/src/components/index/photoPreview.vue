@@ -67,7 +67,7 @@ export default {
     width: 40%;
     height: 100%;
     margin-right: 10%;
-    background: url(../assets/middle.png);
+    background: url(../../assets/middle.png);
     background-size: cover;
     background-position: center;
   }
@@ -125,7 +125,7 @@ export default {
   .imgContainer{
     width: 100%;
     height: 40%;
-    background: url(../assets/short.jpg);
+    background: url(../../assets/short.jpg);
     background-size: cover;
     background-position: center;
   }

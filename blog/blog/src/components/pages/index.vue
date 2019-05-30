@@ -8,8 +8,8 @@
     </div>
   </div>
   <introduce></introduce>
-  <article-preview></article-preview>
   <photo-preview></photo-preview>
+  <article-preview></article-preview>
   <contact-me></contact-me>
   <end-part></end-part>
   <div class="copyRight">
@@ -24,12 +24,12 @@
 </div>
 </template>
 <script>
-import router from './router'
-import introduce from './introduce'
-import articlePreview from './articlePreview'
-import photoPreview from './photoPreview'
-import contactMe from './contactMe'
-import endPart from './endPart'
+import router from '../common/router'
+import introduce from '../index/introduce'
+import articlePreview from '../index/articlePreview'
+import photoPreview from '../index/photoPreview'
+import contactMe from '../index/contactMe'
+import endPart from '../index/endPart'
 export default {
   name: 'index',
   components: {
@@ -61,7 +61,7 @@ export default {
   height: 400px;
   margin: 30px auto;
   position: relative;
-  background-image: url(../assets/background.jpg);
+  background-image: url(../../assets/background.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

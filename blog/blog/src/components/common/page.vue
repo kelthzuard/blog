@@ -1,10 +1,10 @@
 <template>
   <div class="page">
-    <img class="leftArrow" src="../assets/arrow.svg" @click="changePage(selected - 1)">
+    <img class="leftArrow" src="../../assets/arrow.svg" @click="changePage(selected - 1)">
     <div class="numbers" v-for="(item, index) in pages" :key="index">
       <span :class="(item === selected)?'selected':''" @click="changePage(item)">{{Math.floor(item/10) + String(item - Math.floor(item/10)*10)}}</span>
     </div>
-    <img src="../assets/arrow.svg" @click="changePage(selected + 1)">
+    <img src="../../assets/arrow.svg" @click="changePage(selected + 1)">
   </div>
 </template>
 <script>

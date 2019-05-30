@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="imgContainer">
-      <img class="thumb" src="../assets/thumb.png">
+      <img class="thumb" src="../../assets/thumb.png">
     </div>
     <div class="descContainer">
       <p>email / a522516259@163.com</p>

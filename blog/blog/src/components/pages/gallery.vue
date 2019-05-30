@@ -25,8 +25,8 @@
           As people change code to achieve short­term goals, often without a full comprehension of the architecture, the code loses its structure. It becomes harder for me to see the design by reading the code. Loss of the structure of code has a cumulative effect.Loss of the structure of code has a cumulative effect.
         </p>
         <div class="extra">
-          <img src="../assets/eye.svg"><span>2,493</span>
-          <img src="../assets/heart.svg"><span>1,026</span>
+          <img src="../../assets/eye.svg"><span>2,493</span>
+          <img src="../../assets/heart.svg"><span>1,026</span>
         </div>
       </div>
       <div class="item">
@@ -41,8 +41,8 @@
           As people change code to achieve short­term goals, often without a full comprehension of the architecture, the code loses its structure. It becomes harder for me to see the design by reading the code. Loss of the structure of code has a cumulative effect.Loss of the structure of code has a cumulative effect.
         </p>
         <div class="extra">
-          <img src="../assets/eye.svg"><span>2,493</span>
-          <img src="../assets/heart.svg"><span>1,026</span>
+          <img src="../../assets/eye.svg"><span>2,493</span>
+          <img src="../../assets/heart.svg"><span>1,026</span>
         </div>
       </div>
       <div class="item">
@@ -57,8 +57,8 @@
           As people change code to achieve short­term goals, often without a full comprehension of the architecture, the code loses its structure. It becomes harder for me to see the design by reading the code. Loss of the structure of code has a cumulative effect.Loss of the structure of code has a cumulative effect.
         </p>
         <div class="extra">
-          <img src="../assets/eye.svg"><span>2,493</span>
-          <img src="../assets/heart.svg"><span>1,026</span>
+          <img src="../../assets/eye.svg"><span>2,493</span>
+          <img src="../../assets/heart.svg"><span>1,026</span>
         </div>
       </div>
       <div class="item">
@@ -73,8 +73,8 @@
           As people change code to achieve short­term goals, often without a full comprehension of the architecture, the code loses its structure. It becomes harder for me to see the design by reading the code. Loss of the structure of code has a cumulative effect.Loss of the structure of code has a cumulative effect.
         </p>
         <div class="extra">
-          <img src="../assets/eye.svg"><span>2,493</span>
-          <img src="../assets/heart.svg"><span>1,026</span>
+          <img src="../../assets/eye.svg"><span>2,493</span>
+          <img src="../../assets/heart.svg"><span>1,026</span>
         </div>
       </div>
     </div>
@@ -82,9 +82,9 @@
   </div>  
 </template>
 <script>
-import router from './router'
-import selector from './selector'
-import page from './page'
+import router from '../common/router'
+import selector from '../common/selector'
+import page from '../common/page'
 export default {
   name: 'gallery',
   components: {
@@ -108,10 +108,10 @@ export default {
 }
 .header{
   width: 70%;
-  height: 350px;
+  height: 400px;
   margin: 30px 15%;
   position: relative;
-  background-image: url(../assets/gallery.jpg);
+  background-image: url(../../assets/gallery.jpg);
   background-size: contain;
   background-position: center;
   color: #fff;
@@ -160,7 +160,7 @@ export default {
     .imgContainer{
       width: 100%;
       height: 35%;
-      background-image: url('../assets/dailyLife.jpg');
+      background-image: url('../../assets/dailyLife.jpg');
       background-size: cover;
       background-position: center;
     }
