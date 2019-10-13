@@ -12,7 +12,8 @@
       </div>
     </div>
     <selector></selector>
-    <div class="bodyContainer">
+    <gallery-modal v-if="isOpenModal" @closeModal="closeModal"></gallery-modal>
+    <div class="bodyContainer" @click="openModal">
       <div class="item">
         <div class="imgContainer"></div>
         <p class="title">Daily Life<span class="new">NEW</span></p>
@@ -85,16 +86,26 @@
 import router from '../common/router'
 import selector from '../common/selector'
 import page from '../common/page'
+import galleryModal from './galleryModal'
 export default {
   name: 'gallery',
   components: {
     router,
     selector,
-    page
+    page,
+    galleryModal
   },
   data () {
     return {
-
+      isOpenModal: false
+    }
+  },
+  methods: {
+    closeModal () {
+      this.isOpenModal = false
+    },
+    openModal () {
+      this.isOpenModal = true
     }
   },
   mounted () {

@@ -2,7 +2,7 @@
   <div class="container">
     <div class="title">KELTHZUARD <br>BLOG</div>
     <div :class="'option' + ((type === 'home')?' selected':'')" @click="redirect('/')">Home</div>
-    <div :class="'option' + ((type === 'article')?' selected':'')" @click="redirect('/article')" class="option">article</div>
+    <div :class="'option' + ((type === 'article')?' selected':'')" @click="redirect('/oriArticle')" class="option">article</div>
     <div :class="'option' + ((type === 'gallery')?' selected':'')" @click="redirect('/gallery')" class="option">gallery</div>
     <div :class="'option' + ((type === 'about')?' selected':'')" class="option">about</div>
     <div class="option right">

@@ -13,7 +13,7 @@
     </div>
     <selector></selector>
     <div class="body">
-      <div class="item">
+      <div class="item" @click="goToArticle">
         <div class="imgContainer">
           <p class="date"># 2019 / 04 / 25</p>
           <div class="img"></div>
@@ -139,7 +139,14 @@ export default {
   },
   mounted () {
     this.$refs.page.setTotal(20)
-  }
+  },
+  methods: {
+    goToArticle () {
+      this.$router.push({
+        path: 'articlePage'
+      })
+    }
+  },
 }
 </script>
 <style lang="less" scoped>

@@ -2,7 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import index from '@/components/pages/index'
 import gallery from '@/components/pages/gallery'
-import article from '@/components/pages/oriArticle'
+import oriArticle from '@/components/pages/oriArticle'
+import articlePage from '@/components/pages/articlePage'
+import editPage from '@/components/pages/editPage'
 
 Vue.use(Router)
 
@@ -19,9 +21,19 @@ export default new Router({
       component: gallery
     },
     {
-      path: '/article',
-      name: 'article',
-      component: article
+      path: '/oriArticle',
+      name: 'oriArticle',
+      component: oriArticle
+    },
+    {
+      path: '/articlePage',
+      name: 'articlePage',
+      component: articlePage
+    },
+    {
+      path: '/editPage',
+      name: 'editPage',
+      component: editPage
     }
   ]
 })
