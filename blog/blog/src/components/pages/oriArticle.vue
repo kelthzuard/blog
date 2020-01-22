@@ -13,112 +13,30 @@
     </div>
     <selector></selector>
     <div class="body">
-      <div class="item" @click="goToArticle">
+      <div class="item" @click="goToArticle(item)" v-for="(item, index) in articleData" :key="index">
         <div class="imgContainer">
-          <p class="date"># 2019 / 04 / 25</p>
-          <div class="img"></div>
+          <p class="date"># {{item.date}}</p>
+          <div class="img" :style="'background-image: url(' + item.img + ')'"></div>
         </div>
         <div class="desc">
-          <p class="title">Puppteer + jest 前端自动化测试方案探索和实践方案</p>
+          <p class="title">{{item.name}}</p>
           <div class="description">
             <div class="tag">
-              <span>frontEnd</span>
-              <span>AutoTest</span>
+              <span v-for="(items, index) in item.tag" :key="index">{{items}}</span>
             </div>
             <div class="views">
               <img src="../../assets/eye.svg">
-              <span>1,203</span>
+              <span>{{item.watch}}</span>
               <img src="../../assets/heart.svg">
-              <span>332</span>
+              <span>{{item.like}}</span>
             </div>
           </div>
-          <div class="contain" style="display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;">
-          对于浏览器行为的方法，列入等待并点击，等待并跳转，等待并获取html元素内容等而言。由于浏览器行为为真实模拟用户在浏览器中的行为，所以难以避免网络延迟带来的影响，需要在每个方法前手动调用进行延迟操作。
-            但对于很多延迟较高的网页来说难以精准的控制延迟，每次操作方法前的延迟难以弥补浏览器反应迟缓造成的报错。这样的报错是属于意料之外的操作，应该尽量进行避免。考虑采用对于puppteer整体使用slowdown延迟操作，牺牲时间来弥补自动化测试的正确性。
-            因为采用了非常多的延时操作来增加自动化测试的正确性和可靠性，所以会大大牺牲时间成本，但作为本来应用为单元测试框架的jest框架，对于每个单元测试用例有严格的时间要求，所以要尽量把单元测试用例的时间设置为较长的时间，保证测试的正常进行。减少报错。
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="imgContainer">
-          <p class="date"># 2019 / 04 / 25</p>
-          <div class="img"></div>
-        </div>
-        <div class="desc">
-          <p class="title">Puppteer + jest 前端自动化测试方案探索和实践方案</p>
-          <div class="description">
-            <div class="tag">
-              <span>frontEnd</span>
-              <span>AutoTest</span>
-            </div>
-            <div class="views">
-              <img src="../../assets/eye.svg">
-              <span>1,203</span>
-              <img src="../../assets/heart.svg">
-              <span>332</span>
-            </div>
-          </div>
-          <div class="contain" style="display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;">
-          对于浏览器行为的方法，列入等待并点击，等待并跳转，等待并获取html元素内容等而言。由于浏览器行为为真实模拟用户在浏览器中的行为，所以难以避免网络延迟带来的影响，需要在每个方法前手动调用进行延迟操作。
-            但对于很多延迟较高的网页来说难以精准的控制延迟，每次操作方法前的延迟难以弥补浏览器反应迟缓造成的报错。这样的报错是属于意料之外的操作，应该尽量进行避免。考虑采用对于puppteer整体使用slowdown延迟操作，牺牲时间来弥补自动化测试的正确性。
-            因为采用了非常多的延时操作来增加自动化测试的正确性和可靠性，所以会大大牺牲时间成本，但作为本来应用为单元测试框架的jest框架，对于每个单元测试用例有严格的时间要求，所以要尽量把单元测试用例的时间设置为较长的时间，保证测试的正常进行。减少报错。
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="imgContainer">
-          <p class="date"># 2019 / 04 / 25</p>
-          <div class="img"></div>
-        </div>
-        <div class="desc">
-          <p class="title">Puppteer + jest 前端自动化测试方案探索和实践方案</p>
-          <div class="description">
-            <div class="tag">
-              <span>frontEnd</span>
-              <span>AutoTest</span>
-            </div>
-            <div class="views">
-              <img src="../../assets/eye.svg">
-              <span>1,203</span>
-              <img src="../../assets/heart.svg">
-              <span>332</span>
-            </div>
-          </div>
-          <div class="contain" style="display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;">
-          对于浏览器行为的方法，列入等待并点击，等待并跳转，等待并获取html元素内容等而言。由于浏览器行为为真实模拟用户在浏览器中的行为，所以难以避免网络延迟带来的影响，需要在每个方法前手动调用进行延迟操作。
-            但对于很多延迟较高的网页来说难以精准的控制延迟，每次操作方法前的延迟难以弥补浏览器反应迟缓造成的报错。这样的报错是属于意料之外的操作，应该尽量进行避免。考虑采用对于puppteer整体使用slowdown延迟操作，牺牲时间来弥补自动化测试的正确性。
-            因为采用了非常多的延时操作来增加自动化测试的正确性和可靠性，所以会大大牺牲时间成本，但作为本来应用为单元测试框架的jest框架，对于每个单元测试用例有严格的时间要求，所以要尽量把单元测试用例的时间设置为较长的时间，保证测试的正常进行。减少报错。
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="imgContainer">
-          <p class="date"># 2019 / 04 / 25</p>
-          <div class="img"></div>
-        </div>
-        <div class="desc">
-          <p class="title">Puppteer + jest 前端自动化测试方案探索和实践方案</p>
-          <div class="description">
-            <div class="tag">
-              <span>frontEnd</span>
-              <span>AutoTest</span>
-            </div>
-            <div class="views">
-              <img src="../../assets/eye.svg">
-              <span>1,203</span>
-              <img src="../../assets/heart.svg">
-              <span>332</span>
-            </div>
-          </div>
-          <div class="contain" style="display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;">
-          对于浏览器行为的方法，列入等待并点击，等待并跳转，等待并获取html元素内容等而言。由于浏览器行为为真实模拟用户在浏览器中的行为，所以难以避免网络延迟带来的影响，需要在每个方法前手动调用进行延迟操作。
-            但对于很多延迟较高的网页来说难以精准的控制延迟，每次操作方法前的延迟难以弥补浏览器反应迟缓造成的报错。这样的报错是属于意料之外的操作，应该尽量进行避免。考虑采用对于puppteer整体使用slowdown延迟操作，牺牲时间来弥补自动化测试的正确性。
-            因为采用了非常多的延时操作来增加自动化测试的正确性和可靠性，所以会大大牺牲时间成本，但作为本来应用为单元测试框架的jest框架，对于每个单元测试用例有严格的时间要求，所以要尽量把单元测试用例的时间设置为较长的时间，保证测试的正常进行。减少报错。
+          <div class="contain" v-html="item.content" style="display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;">
           </div>
         </div>
       </div>
     </div>
-    <page ref="page"></page>
+    <page ref="page" @pageChange="pageChange"></page>
   </div>
 </template>
 <script>
@@ -134,17 +52,40 @@ export default {
   },
   data () {
     return {
-
+      articleData: []
     }
   },
   mounted () {
-    this.$refs.page.setTotal(20)
+    this.getData(0)
   },
   methods: {
-    goToArticle () {
-      this.$router.push({
-        path: 'articlePage'
+    getData (page) {
+      this.$axios.get('/getArticleList?page=' + page + '&size=6')
+      .then( (res) => {
+        const data = res.data.data
+        const reg = /<img.*?(?:>|\/>)/gi // 正则匹配图片并去掉。防止简介里面显示图片
+        data.forEach( (value) => {
+          value.tag = value.tag.split(';')
+          value.content = value.content.replace(reg, '')
+        })  
+        this.articleData = data
+        this.$refs.page.setTotal(res.data.total)
       })
+      .catch( (err) => {
+        console.log(err)
+      })
+    },
+    goToArticle (articleInfo) {
+      const articleId = articleInfo.id
+      this.$router.push({
+        path: 'articlePage',
+        query: {
+          id: articleId
+        }
+      })
+    },
+    pageChange (page) {
+      this.getData (page)
     }
   },
 }

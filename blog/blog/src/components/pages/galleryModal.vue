@@ -5,7 +5,9 @@
             <div class="close" @click="closeModal">
                 <img src="../../assets/close.svg">
             </div>
-            <img src="../../assets/short.jpg" class="mainImg">
+            <img :src="info.img" class="mainImg">
+            <div class="title">{{info.name}}</div>
+            <div class="desc">{{info.desc}}</div>
         </div>
     </div>
 </transition>   
@@ -13,10 +15,18 @@
 <script>
 export default {
     name: 'galleryModal',
+    props: [
+        'galleryInfo'
+    ],
     data () {
         return {
 
         }
+    },
+    computed: {
+       info () {
+           return this.galleryInfo
+       } 
     },
     methods: {
         closeModal () {
@@ -29,7 +39,7 @@ export default {
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
 }
-.fade-enter, .fade-leave-active {
+.fade-enter-active, .fade-leave-active {
   opacity: 0;
 }
 .cover{
@@ -52,6 +62,7 @@ export default {
     background: #f5f5f5;
     padding: 80px 20px 20px 20px;
     box-sizing: border-box;
+    overflow: scroll;
     .close{
         width: 40px;
         height: 40px;
@@ -69,6 +80,15 @@ export default {
         margin: 0 auto;
         max-height: 100%;
         max-width: 100%;
+    }
+    .title{
+        font-size: 30px;
+        font-weight: 600;
+        margin: 5% 0 0 10%;
+    }
+    .desc{
+        font-size: 25px;
+        margin: 30px 0 0 10%;
     }
 }
 </style>

@@ -50,7 +50,8 @@ export default {
 <style lang="less" scoped>
 .page{
   margin: 30px auto;
-  display: inline-block;
+  display: block;
+  text-align: center;
   img{
     width:35px;
     cursor: pointer;

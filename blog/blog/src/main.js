@@ -6,6 +6,7 @@ import router from './router'
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
 import axios from 'axios'
+axios.defaults.baseURL = 'http://localhost:7001'
 Vue.prototype.$axios = axios
 Vue.use(mavonEditor)
 

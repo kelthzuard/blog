@@ -1,51 +1,47 @@
 <template>
     <div>
         <div class="part">
-            <span>文章名：</span> 
-            <input type="text" v-model="articleInfo.name">
+            <span>图片名：</span> 
+            <input type="text" v-model="galleryInfo.name">
         </div>
         <div class="part">
             <span>头图：</span> 
             <input ref="img" type="file" accept=".png, .jpg, jpeg">
         </div>
-        <div class="part" v-for="(item, index) in articleInfo.tag">
+        <div class="part" v-for="(item, index) in galleryInfo.tag">
             <span>标签：</span> 
-            <input type="text" v-model="articleInfo.tag[index]">
+            <input type="text" v-model="galleryInfo.tag[index]">
         </div>
         <div class="part">
             <span @click="addTag">添加</span> 
             <span @click="deleteTag">删除</span>
         </div>
-        <mavon-editor @change="saveRender" @imgAdd="imgAdd" ref="mavon"></mavon-editor>
+        <div class="part">
+            <span>描述: </span>
+            <textarea type="text" v-model="galleryInfo.desc"></textarea>
+        </div>
         <div class="Button" @click="submit">提交</div>
     </div>
 </template>
 <script>    
 export default {
-    name: 'editpage',
+    name: 'editGallery',
     data () {
         return {
-            articleInfo: {
+            galleryInfo: {
                 name: '',
                 img: '',
-                content: '',
+                desc: '',
                 tag: ['']
             }
         }
     },
     methods: {
         addTag () {
-            this.articleInfo.tag.push('')
+            this.galleryInfo.tag.push('')
         },
         deleteTag () {
-            this.articleInfo.tag.pop()
-        },
-        saveRender (value, render) {
-            this.articleInfo.content = render
-            console.log(render)
-        },
-        imgAdd (fileName, file) {
-            this.getToken(file, fileName, this.$refs.mavon.$img2Url)
+            this.galleryInfo.tag.pop()
         },
         getToken (file, fileName, callback) {
             this.$axios.post('/getKey', {})
@@ -70,24 +66,23 @@ export default {
             })
         },
         submit () {
-            if (this.articleInfo.name == '') {
-                alert('文章名不能为空')
+            if (this.galleryInfo.name == '') {
+                alert('图片名不能为空')
                 return
             }
-            if (this.articleInfo.content == '') {
-                alert('文章内容不能为空')
+            if (this.galleryInfo.desc == '') {
+                alert('图片描述内容不能为空')
                 return
             }
-            if (this.articleInfo.tag.length == 0) {
+            if (this.galleryInfo.tag.length == 0) {
                 alert('标签不能为空')
                 return 
             }
-            this.articleInfo.tag = this.articleInfo.tag.join(';')
+            this.galleryInfo.tag = this.galleryInfo.tag.join(';')
             if (this.$refs.img.files.length > 0) {
                 const file = this.$refs.img.files[0]
                 this.getToken(file, 'headImg', (fileName, url) => {
-                    console.log(this.articleInfo)
-                    this.articleInfo.img = url
+                    this.galleryInfo.img = url
                     this.startUpload()
                 })
             }
@@ -95,7 +90,7 @@ export default {
         },
         startUpload () {
             let self = this
-            this.$axios.post('/writeArticle', self.articleInfo)
+            this.$axios.post('/writeGallery', self.galleryInfo)
             .then( (res) => {
                 alert('success')
             })
@@ -109,6 +104,10 @@ export default {
 <style lang="less">
 .part{
     padding: 20px 0 20px 50px;
+    textarea{
+        width: 400px;
+        height: 100px;
+    }
 }
 .Button{
     width: 150px;

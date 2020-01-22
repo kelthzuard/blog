@@ -12,70 +12,18 @@
       </div>
     </div>
     <selector></selector>
-    <gallery-modal v-if="isOpenModal" @closeModal="closeModal"></gallery-modal>
-    <div class="bodyContainer" @click="openModal">
-      <div class="item">
-        <div class="imgContainer"></div>
-        <p class="title">Daily Life<span class="new">NEW</span></p>
+    <gallery-modal :galleryInfo="galleryDetail" v-if="isOpenModal" @closeModal="closeModal"></gallery-modal>
+    <div class="bodyContainer">
+      <div class="item" v-for="(item ,index) in galleryInfo" :key="index" @click="openModal(item)">
+        <div class="imgContainer" :style="'background-image:url(' + item.img + ')'"></div>
+        <p class="title">{{item.name}}<span class="new">NEW</span></p>
         <p class="tag">
-          <span>ognization</span>
-          <span>poster</span>
-          <span>simplify</span>
+          <span v-for="(items, Index) in item.tag" :key="Index">{{items}}</span>
         </p>
-        <p class="desc">
-          As people change code to achieve short­term goals, often without a full comprehension of the architecture, the code loses its structure. It becomes harder for me to see the design by reading the code. Loss of the structure of code has a cumulative effect.Loss of the structure of code has a cumulative effect.
-        </p>
+        <p class="desc">{{item.desc}}</p>
         <div class="extra">
-          <img src="../../assets/eye.svg"><span>2,493</span>
-          <img src="../../assets/heart.svg"><span>1,026</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="imgContainer"></div>
-        <p class="title">Daily Life<span class="new">NEW</span></p>
-        <p class="tag">
-          <span>ognization</span>
-          <span>poster</span>
-          <span>simplify</span>
-        </p>
-        <p class="desc">
-          As people change code to achieve short­term goals, often without a full comprehension of the architecture, the code loses its structure. It becomes harder for me to see the design by reading the code. Loss of the structure of code has a cumulative effect.Loss of the structure of code has a cumulative effect.
-        </p>
-        <div class="extra">
-          <img src="../../assets/eye.svg"><span>2,493</span>
-          <img src="../../assets/heart.svg"><span>1,026</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="imgContainer"></div>
-        <p class="title">Daily Life<span class="new">NEW</span></p>
-        <p class="tag">
-          <span>ognization</span>
-          <span>poster</span>
-          <span>simplify</span>
-        </p>
-        <p class="desc">
-          As people change code to achieve short­term goals, often without a full comprehension of the architecture, the code loses its structure. It becomes harder for me to see the design by reading the code. Loss of the structure of code has a cumulative effect.Loss of the structure of code has a cumulative effect.
-        </p>
-        <div class="extra">
-          <img src="../../assets/eye.svg"><span>2,493</span>
-          <img src="../../assets/heart.svg"><span>1,026</span>
-        </div>
-      </div>
-      <div class="item">
-        <div class="imgContainer"></div>
-        <p class="title">Daily Life<span class="new">NEW</span></p>
-        <p class="tag">
-          <span>ognization</span>
-          <span>poster</span>
-          <span>simplify</span>
-        </p>
-        <p class="desc">
-          As people change code to achieve short­term goals, often without a full comprehension of the architecture, the code loses its structure. It becomes harder for me to see the design by reading the code. Loss of the structure of code has a cumulative effect.Loss of the structure of code has a cumulative effect.
-        </p>
-        <div class="extra">
-          <img src="../../assets/eye.svg"><span>2,493</span>
-          <img src="../../assets/heart.svg"><span>1,026</span>
+          <img src="../../assets/eye.svg"><span>{{item.watch}}</span>
+          <img src="../../assets/heart.svg"><span>{{item.like}}</span>
         </div>
       </div>
     </div>
@@ -97,19 +45,35 @@ export default {
   },
   data () {
     return {
-      isOpenModal: false
+      isOpenModal: false,
+      galleryInfo: [],
+      galleryDetail: {}
     }
   },
   methods: {
     closeModal () {
       this.isOpenModal = false
     },
-    openModal () {
+    openModal (info) {
+      this.galleryDetail = info
       this.isOpenModal = true
+    },
+    getData () {
+      this.$axios.get('/getGalleryList')
+      .then ( (res) => {
+        this.galleryInfo = res.data.data
+        this.galleryInfo.forEach( (item) => {
+          item.tag = item.tag.split(';')
+        })
+        this.$refs.page.setTotal(res.data.total)
+      })
+      .catch ( (res) => {
+        console.log(res)
+      })
     }
   },
   mounted () {
-    this.$refs.page.setTotal(50)
+    this.getData(0)
   }
 }
 </script>
@@ -170,7 +134,7 @@ export default {
     position: relative;
     .imgContainer{
       width: 100%;
-      height: 35%;
+      height: 45%;
       background-image: url('../../assets/dailyLife.jpg');
       background-size: cover;
       background-position: center;

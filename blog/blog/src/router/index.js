@@ -5,6 +5,7 @@ import gallery from '@/components/pages/gallery'
 import oriArticle from '@/components/pages/oriArticle'
 import articlePage from '@/components/pages/articlePage'
 import editPage from '@/components/pages/editPage'
+import editGallery from '@/components/pages/editGallery'
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ export default new Router({
       path: '/editPage',
       name: 'editPage',
       component: editPage
+    },
+    {
+      path: '/editGallery',
+      name: 'editGallery',
+      component: editGallery
     }
   ]
 })
